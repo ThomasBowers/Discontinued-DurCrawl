@@ -94,4 +94,27 @@ function init_map() {
     map: map,
     title: "University"
   });
+
+  /* var bar_markers = [hild_bede, brooks, grey, stephenson, butler, collingwood, trevelyan, van_mildert, aidans, marys, cuths, johns, chads, hatfield, university]
+
+  for (var i = 1; i < bar_markers.length - 1; i++) {
+  	displayRoute(bar_markers[i].position, bar_markers[i + 1].position, map)
+  }*/
 }
+
+/* function displayRoute(start, end, map) {
+    var directionsDisplay = new google.maps.DirectionsRenderer();// also, constructor can get "DirectionsRendererOptions" object
+    directionsDisplay.setMap(map); // map should be already initialized.
+
+    var request = {
+        origin : start,
+        destination : end,
+        travelMode : google.maps.TravelMode.WALKING
+    };
+    var directionsService = new google.maps.DirectionsService(); 
+    directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+        }
+    });
+}*/
