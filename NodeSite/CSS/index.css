@@ -1,0 +1,24 @@
+.mynav-bg {
+	background-color: #222222;
+}
+
+.mycard-border {
+	border-color: #555555;
+}
+
+body {
+	background-color: #111111;
+}
+
+.navbar-nav .active>.nav-link {
+}
+
+.nav-link {
+	color: #AAAAAA;
+}
+
+.active {
+	color: #FFFFFF;
+	border-bottom: 3px solid #FFFFFF;
+	font-weight: bold;
+}
