@@ -9,9 +9,12 @@
 
 }
 
-
 body {
     background-color: #111111;
+}
+
+.white-colour {
+    color: white;
 }
 
 card {
@@ -19,7 +22,12 @@ card {
     height: auto;
 }
 
+.spacing {
+    margin-top: 50px;
+}
+
 .navbar-nav .active > .nav-link {
+
 }
 
 .nav-link {
@@ -36,18 +44,13 @@ card {
     margin: 10px;
 }
 
-
 .college-card-img {
     max-width: 100%;
     width: 90vw;
     height: auto;
     float: top;
 }
-@media only screen (min-width:
-
-768px
-
-) {
+@media only screen (min-width: 768px) {
     .college-card-img {
         max-width: 100%;
         width: 30vw;
