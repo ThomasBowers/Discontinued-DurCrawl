@@ -129,12 +129,18 @@
 			let bar_ids = ["cuths", "johns", "chads", "hatfield", "castle", "stephenson", "butler", "mildert", "aidans", "trevs", "collingwood", "grey", "marys", "brooks", "bede", "dsu"]
 
 			$('#create-btn').on('click', function(event) {
+				let new_url = window.location.origin + "/create?"
+
 				for (var id_index = 0; id_index <= bar_ids.length - 1; id_index++) {
 					let current_bar_id = bar_ids[id_index]
 					let is_checked = $("#" + current_bar_id).is(":checked")
 
-					console.log(current_bar_id + " " + is_checked)
+					if (is_checked) {
+						new_url += current_bar_id + "&"
+					}
 				}
+
+				document.location.href = new_url;
 			});
 		</script>
 
