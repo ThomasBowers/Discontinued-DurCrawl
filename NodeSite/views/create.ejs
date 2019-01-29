@@ -1,0 +1,116 @@
+<% include head.ejs%>
+
+<% include nav.ejs %>
+<div class="container-fluid text-center white-colour">
+    <h3><u><strong>Select colleges</strong></u></h3>
+    <h4>Bailey</h4>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="cuths">
+        <label class="form-check-label" for="exampleCheck1">St Cuthbert's (Bailey Site)</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="johns">
+        <label class="form-check-label" for="exampleCheck1">St John's</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="chads">
+        <label class="form-check-label" for="exampleCheck1">St Chad's</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="hatfield">
+        <label class="form-check-label" for="exampleCheck1">Hatfield</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="castle">
+        <label class="form-check-label" for="exampleCheck1">University (Castle)</label>
+    </div>
+
+    <h4 class="spacing">Hill</h4>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="stephenson">
+        <label class="form-check-label" for="exampleCheck1">Stephenson</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="butler">
+        <label class="form-check-label" for="exampleCheck1">Josephine Butler</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="mildert">
+        <label class="form-check-label" for="exampleCheck1">Van Mildert</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="aidans">
+        <label class="form-check-label" for="exampleCheck1">St Aidan's</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="trevs">
+        <label class="form-check-label" for="exampleCheck1">Trevelyan</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="collingwood">
+        <label class="form-check-label" for="exampleCheck1">Collingwood</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="grey">
+        <label class="form-check-label" for="exampleCheck1">Grey</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="marys">
+        <label class="form-check-label" for="exampleCheck1">St Mary's</label>
+    </div>
+
+    <h4 class="spacing">Other</h4>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="brooks">
+        <label class="form-check-label" for="exampleCheck1">St Cuthbert's (Brooks Site)</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="bede">
+        <label class="form-check-label" for="exampleCheck1">St Hild & St Bede</label>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="dsu">
+        <label value="off" class="form-check-label" for="exampleCheck1">DSU Bar (Riverside)</label>
+    </div>
+
+    <button id="create-btn" type="button" class="btn btn-dark">Create Crawl</button>
+</div>
+
+<script>
+    let bar_ids = ["cuths", "johns", "chads", "hatfield", "castle", "stephenson", "butler", "mildert", "aidans", "trevs", "collingwood", "grey", "marys", "brooks", "bede", "dsu"]
+
+    $('#create-btn').on('click', function (event) {
+        let new_url = window.location.origin + "/create?"
+
+        for (var id_index = 0; id_index <= bar_ids.length - 1; id_index++) {
+            let current_bar_id = bar_ids[id_index]
+            let is_checked = $("#" + current_bar_id).is(":checked")
+
+            if (is_checked) {
+                new_url += current_bar_id + "&"
+            }
+        }
+
+        document.location.href = new_url;
+    });
+</script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js" crossorigin="anonymous"></script>
+</body>
+</html>

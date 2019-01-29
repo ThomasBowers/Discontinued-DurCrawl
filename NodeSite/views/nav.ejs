@@ -1,0 +1,18 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/images/beer.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        DurCrawl
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a  <% if (title === 'home') { %>class="nav-item nav-link active" <% } else{ %>class="nav-item nav-link"<%} %> href="/">Home</a>
+            <a <% if (title === 'about') { %>class="nav-item nav-link active" <% } else{ %>class="nav-item nav-link"<%} %> href="about">About</a>
+            <a <% if (title === 'colleges') { %>class="nav-item nav-link active" <% } else{ %>class="nav-item nav-link"<%} %> href="colleges">Colleges</a>
+            <a <% if (title === 'create') { %>class="nav-item nav-link active" <% } else{ %>class="nav-item nav-link"<%} %> href="create">Make-a-Crawl</a>
+        </div>
+    </div>
+</nav>

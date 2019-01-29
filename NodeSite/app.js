@@ -1,55 +1,46 @@
-var http = require('http');
-var fs = require('fs');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-const hostname = "127.0.0.1"
-const port = 3000;
+var indexRouter = require('./routes/index');
+var aboutRouter = require('./routes/about');
+var collegesRouter = require('./routes/colleges');
+var createRouter = require('./routes/create');
 
-const server = http.createServer(function(request, response) {  
-		const request_url = request.url
-		var resource_url = "."
-		var content_type = {"Content-Type" : "text/html"}
+var app = express();
 
-		var extension = request_url.split('.').pop()
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-		if (request_url == "/") {
-			resource_url += "/index.html"
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-		} else if (request_url.includes("create?")) {
-			var query = request_url.split('?')[1]
-			var colleges_to_include = request_url.split('?')[1].split('&')
-			colleges_to_include = colleges_to_include.splice(0, colleges_to_include.length - 1)
-
-			console.log(colleges_to_include)
+app.use('/', indexRouter);
+app.use('/colleges', collegesRouter);
+app.use('/about', aboutRouter);
+app.use('/create', createRouter);
 
 
-		} else {
-			resource_url += request_url
-		}
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
-		switch (extension) {
-			case "jpg": {
-				content_type["Content-Type"] = "image/jpg"
-				break
-			}
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-			case "png": {
-				content_type["Content-Type"] = "image/png"
-				break
-			}
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
-			case "js": {
-				content_type["Content-Type"] = "text/javascript"
-				break
-			}
-
-			case "css": {
-				content_type["Content-Type"] = "text/css"
-				break
-			}
-		}
-
-        response.writeHeader(200, content_type);
-        var contents = fs.readFileSync(resource_url);
-        response.write(contents)
-        response.end(); 
-    }).listen(port, hostname);
+module.exports = app;
