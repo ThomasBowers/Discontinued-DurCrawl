@@ -1,8 +1,60 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.mynav-bg {
+    background-color: #222222;
 }
 
-a {
-  color: #00B7FF;
+.mycard-border {
+    border-color: #555555;
+    bottom-margin: 10px;
+
+}
+
+body {
+    background-color: #111111;
+}
+
+.white-colour {
+    color: white;
+}
+
+card {
+    width: 30%;
+    height: auto;
+}
+
+.spacing {
+    margin-top: 50px;
+}
+
+.navbar-nav .active > .nav-link {
+
+}
+
+.nav-link {
+    color: #AAAAAA;
+}
+
+.active {
+    color: #FFFFFF;
+    border-bottom: 3px solid #FFFFFF;
+    font-weight: bold;
+}
+
+.card-group {
+    margin: 10px;
+}
+
+.college-card-img {
+    max-width: 100%;
+    width: 90vw;
+    height: auto;
+    float: top;
+}
+@media only screen (min-width: 768px) {
+    .college-card-img {
+        max-width: 100%;
+        width: 30vw;
+        height: 30vh;
+        float: top;
+    }
 }
