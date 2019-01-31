@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
   fs.readFile('public/colleges.json', function handleFile(err, data){
     if (err) throw err;
     colleges = JSON.parse(data).colleges;
-    res.render('colleges',{ title: 'colleges', colleges: colleges});
+    res.render('colleges',{ title: 'colleges', crawl: 0, colleges: colleges});
   });
 
 });

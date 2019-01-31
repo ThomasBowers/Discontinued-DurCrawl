@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var aboutRouter = require('./routes/about');
 var collegesRouter = require('./routes/colleges');
 var createRouter = require('./routes/create');
+var crawlRouter = require('./routes/crawl');
 var app = express();
 
 // view engine setup
@@ -24,6 +25,10 @@ app.use('/', indexRouter);
 app.use('/colleges', collegesRouter);
 app.use('/about', aboutRouter);
 app.use('/create', createRouter);
+app.use('/crawl', crawlRouter);
+app.use('/hillcrawl', crawlRouter);
+app.use('/baileycrawl', crawlRouter);
+app.use('/fullcrawl', crawlRouter);
 
 
 // catch 404 and forward to error handler

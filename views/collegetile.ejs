@@ -10,7 +10,9 @@
                 </h5>
                 <p class="card-text">Opens: <%- colleges[i].open%>PM, Closes:<%- colleges[i].close%>AM</p>
                 <p class="card-text">Location: <%- colleges[i].type%></p>
-
+                <% if (crawl){ %>
+                <p class="card-text">Arrival: <%- times[i][0] %> Departure: <%- times[i][0] %> </p>
+                <%}%>
             </div>
         </div>
     </div>

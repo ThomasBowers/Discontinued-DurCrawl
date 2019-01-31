@@ -1,0 +1,13 @@
+<% include head.ejs %>
+<% include nav.ejs %>
+<div class="container-fluid">
+    <div class="card-group">
+        <div class="row">
+            <% for(var i = 0; i < colleges.length; i++){ %>
+            <% include collegetile.ejs %>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<% include footer.ejs %>
