@@ -1,114 +1,132 @@
-[{
-  "cuths-brooks": {
-    "lat": 54.773075,
-    "long": -1.564931,
-    "open": 2.5,
-    "close": 12,
-    "type": "other"
-  },
-  "hilde-bede": {
-    "lat": 54.777361,
-    "long": -1.565687,
-    "open": 2.5,
-    "close": 12,
-    "type": "other"
-  },
-  "castle": {
-    "lat": 54.775612,
-    "long": -1.576249,
-    "open": 2.5,
-    "close": 12,
-    "type": "bailey"
-  },
-  "hatfield": {
-    "lat": 54.774811,
-    "long": -1.574407,
-    "open": 2.5,
-    "close": 12,
-    "type": "bailey"
-  },
-  "st-chads": {
-    "lat": 54.773304,
-    "long": -1.574801,
-    "open": 2.5,
-    "close": 12,
-    "type": "bailey"
-  },
-  "st-johns": {
-    "lat": 54.772094,
-    "long": -1.575701,
-    "open": 2.5,
-    "close": 12,
-    "type": "bailey"
-  },
-  "cuths-bailey": {
-    "lat": 54.770915,
-    "long": -1.577428,
-    "open": 2.5,
-    "close": 12,
-    "type": "bailey"
-  },
-  "st-marys": {
-    "lat": 54.766405,
-    "long": -1.577807,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "trevs": {
-    "lat": 54.764481,
-    "long": -1.579856,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "van-mildert":{
-    "lat": 54.763257,
-    "long": -1.581062,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "st-aidans":{
-    "lat": 54.765173,
-    "long": -1.584268,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "gray":{
-    "lat": 54.764743,
-    "long": -1.575700,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "collingwood":{
-    "lat": 54.762793,
-    "long": -1.576540,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "butler":{
-    "lat": 54.759846,
-    "long": -1.579856,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "stephenson":{
-    "lat": 54.759700,
-    "long": -1.581322,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  },
-  "john-snow":{
-    "lat": 54.759684,
-    "long": -1.580923,
-    "open": 2.5,
-    "close": 12,
-    "type": "hill"
-  }
-}]
+{
+  "colleges": [
+    {
+      "name": "cuth's, brooks",
+      "lat": 54.773075,
+      "long": -1.564931,
+      "open": 2.5,
+      "close": 12,
+      "type": "other"
+    },
+    {
+      "name": "hilde bede",
+      "lat": 54.777361,
+      "long": -1.565687,
+      "open": 2.5,
+      "close": 12,
+      "type": "other"
+    },
+    {
+      "name": "castle",
+      "lat": 54.775612,
+      "long": -1.576249,
+      "open": 2.5,
+      "close": 12,
+      "type": "bailey"
+    },
+    {
+      "name": "hatfield",
+      "lat": 54.774811,
+      "long": -1.574407,
+      "open": 2.5,
+      "close": 12,
+      "type": "bailey"
+    },
+    {
+      "name": "st chad's",
+      "lat": 54.773304,
+      "long": -1.574801,
+      "open": 2.5,
+      "close": 12,
+      "type": "bailey"
+    },
+    {
+      "name": "st john's",
+      "lat": 54.772094,
+      "long": -1.575701,
+      "open": 2.5,
+      "close": 12,
+      "type": "bailey"
+    },
+    {
+      "name": "cuth's, bailey",
+      "lat": 54.770915,
+      "long": -1.577428,
+      "open": 2.5,
+      "close": 12,
+      "type": "bailey"
+    },
+    {
+      "name": "st mary's",
+      "lat": 54.766405,
+      "long": -1.577807,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "trevs",
+      "lat": 54.764481,
+      "long": -1.579856,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "van mildert",
+      "lat": 54.763257,
+      "long": -1.581062,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "st aidan's",
+      "lat": 54.765173,
+      "long": -1.584268,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "gray",
+      "lat": 54.764743,
+      "long": -1.575700,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "collingwood",
+      "lat": 54.762793,
+      "long": -1.576540,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "butler",
+      "lat": 54.759846,
+      "long": -1.579856,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "stephenson",
+      "lat": 54.759700,
+      "long": -1.581322,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    },
+    {
+      "name": "john snow",
+      "lat": 54.759684,
+      "long": -1.580923,
+      "open": 2.5,
+      "close": 12,
+      "type": "hill"
+    }
+  ]
+}
