@@ -8,7 +8,7 @@ var colleges;
 
 /* GET college page. */
 router.get('/', function(req, res) {
-  fs.readFile('NodeSite/public/colleges.json', function handleFile(err, data){
+  fs.readFile('public/colleges.json', function handleFile(err, data){
     if (err) throw err;
     colleges = JSON.parse(data).colleges;
     res.render('colleges',{ title: 'colleges', colleges: colleges});
