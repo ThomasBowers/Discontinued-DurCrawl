@@ -4,6 +4,7 @@
 <div class="container-fluid">
     <div class="card-group">
         <div class="row">
+            <%for(var i = 0; i < colleges.length; i++){%>
             <div class="col-md-4">
                 <div class="card-group">
                     <div class="card bg-dark mycard-border text-white">
@@ -11,204 +12,13 @@
                             <img class="card-img-top" src="/images/castle.png" alt="Card image cap">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">University</h5>
+                            <h5 class="card-title"><%colleges[0][0]%></h5>
                             <p class="card-text">Unknown</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/cuths_bailey.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St Cuthbert's (Brooks, Bailey)</h5>
-                            <p class="card-text">Both 2:30pm - Midnight</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/grey.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Grey</h5>
-                            <p class="card-text">8:00pm - Midnight</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/butler.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Butler</h5>
-                            <p class="card-text">Unknown (7:30pm - ???)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/collingwood.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Collingwood</h5>
-                            <p class="card-text">"2.30 - 12"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/trevs.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Trevelyan</h5>
-                            <p class="card-text">8:00pm - Midnight</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/vanmildert.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Van Mildert</h5>
-                            <p class="card-text">Negatory</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/aidans.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St Aidan's</h5>
-                            <p class="card-text">6:00pm - Midnight</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/marys.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St Mary's</h5>
-                            <p class="card-text">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/johns.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St John's</h5>
-                            <p class="card-text">7:30pm - 11:00pm</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/chads.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St Chad's</h5>
-                            <p class="card-text">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/twatfeild.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Hatfield</h5>
-                            <p class="card-text">7:00pm - 11:30pm</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/hildbede.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St Hild & St Bede</h5>
-                            <p class="card-text">6:30pm - Midnight</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/hildbede.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St Hild & St Bede</h5>
-                            <p class="card-text">6:30pm - Midnight</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/hildbede.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">St Hild & St Bede</h5>
-                            <p class="card-text">6:30pm - Midnight</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%}%>
         </div>
     </div>
 </div>
