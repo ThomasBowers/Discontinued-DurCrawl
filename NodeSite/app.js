@@ -8,7 +8,6 @@ var indexRouter = require('./routes/index');
 var aboutRouter = require('./routes/about');
 var collegesRouter = require('./routes/colleges');
 var createRouter = require('./routes/create');
-
 var app = express();
 
 // view engine setup
