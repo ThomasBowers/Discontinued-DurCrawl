@@ -2,11 +2,15 @@
     <div class="card-group">
         <div class="card bg-dark mycard-border text-white">
             <div class="college-card-img">
-                <img class="card-img-top" src="/images/castle.png" alt="Card image cap">
+                <img class="card-img-top" src=<%- colleges[i].image%> alt="Card image cap">
             </div>
             <div class="card-body">
-                <h5 class="card-title"><%college[0][0]%></h5>
-                <p class="card-text">Unknown</p>
+                <h5 class="card-title">
+                    <%- colleges[i].name %>
+                </h5>
+                <p class="card-text">Opens: <%- colleges[i].open%>PM, Closes:<%- colleges[i].close%>AM</p>
+                <p class="card-text">Location: <%- colleges[i].type%></p>
+
             </div>
         </div>
     </div>

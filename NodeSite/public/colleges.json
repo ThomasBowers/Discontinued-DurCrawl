@@ -1,131 +1,161 @@
 {
   "colleges": [
     {
-      "name": "cuth's, brooks",
+      "name": "Cuth's, Brooks",
       "lat": 54.773075,
       "long": -1.564931,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/cuths_bailey.png",
       "type": "other"
     },
     {
-      "name": "hilde bede",
+      "name": "Hilde Bede",
       "lat": 54.777361,
       "long": -1.565687,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/hildbede.png",
       "type": "other"
     },
     {
-      "name": "castle",
+      "name": "Castle",
       "lat": 54.775612,
       "long": -1.576249,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/castle.png",
+
       "type": "bailey"
     },
     {
-      "name": "hatfield",
+      "name": "Hatfield",
       "lat": 54.774811,
       "long": -1.574407,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/twatfeild.png",
+
       "type": "bailey"
     },
     {
-      "name": "st chad's",
+      "name": "St Chad's",
       "lat": 54.773304,
       "long": -1.574801,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/chads.png",
+
       "type": "bailey"
     },
     {
-      "name": "st john's",
+      "name": "St John's",
       "lat": 54.772094,
       "long": -1.575701,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/johns.png",
+
       "type": "bailey"
     },
     {
-      "name": "cuth's, bailey",
+      "name": "Cuth's, Bailey",
       "lat": 54.770915,
       "long": -1.577428,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/cuths_bailey.png",
+
       "type": "bailey"
     },
     {
-      "name": "st mary's",
+      "name": "St Mary's",
       "lat": 54.766405,
       "long": -1.577807,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/marys.png",
+
       "type": "hill"
     },
     {
-      "name": "trevs",
+      "name": "Trevs",
       "lat": 54.764481,
       "long": -1.579856,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/trevs.png",
+
       "type": "hill"
     },
     {
-      "name": "van mildert",
+      "name": "Van Mildert",
       "lat": 54.763257,
       "long": -1.581062,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/vanmildert.png",
+
       "type": "hill"
     },
     {
-      "name": "st aidan's",
+      "name": "St Aidan's",
       "lat": 54.765173,
       "long": -1.584268,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/aidans.png",
+
       "type": "hill"
     },
     {
-      "name": "gray",
+      "name": "Gray",
       "lat": 54.764743,
       "long": -1.575700,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/grey.png",
+
       "type": "hill"
     },
     {
-      "name": "collingwood",
+      "name": "Collingwood",
       "lat": 54.762793,
       "long": -1.576540,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/collingwood.png",
+
       "type": "hill"
     },
     {
-      "name": "butler",
+      "name": "Butler",
       "lat": 54.759846,
       "long": -1.579856,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/butler.png",
+
       "type": "hill"
     },
     {
-      "name": "stephenson",
+      "name": "Stephenson",
       "lat": 54.759700,
       "long": -1.581322,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/cuths_bailey.png",
+
       "type": "hill"
     },
     {
-      "name": "john snow",
+      "name": "John Snow",
       "lat": 54.759684,
       "long": -1.580923,
-      "open": 2.5,
+      "open": "2.30",
       "close": 12,
+      "image": "/images/cuths_bailey.png",
+
       "type": "hill"
     }
   ]

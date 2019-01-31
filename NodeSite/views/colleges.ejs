@@ -1,24 +1,11 @@
-<% include head.ejs%>
-
-<% include nav.ejs%>
+<% include head.ejs %>
+<% include nav.ejs %>
 <div class="container-fluid">
     <div class="card-group">
         <div class="row">
-            <%for(var i = 0; i < colleges.length; i++){%>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card bg-dark mycard-border text-white">
-                        <div class="college-card-img">
-                            <img class="card-img-top" src="/images/castle.png" alt="Card image cap">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><%colleges[0][0]%></h5>
-                            <p class="card-text">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <%}%>
+            <% for(var i = 0; i < colleges.length; i++){ %>
+            <% include collegetile.ejs %>
+            <% } %>
         </div>
     </div>
 </div>
