@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"all", 11);
+    colleges = calc.byType(colleges,"all", 1);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});

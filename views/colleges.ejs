@@ -1,13 +1,22 @@
 <% include head.ejs %>
 <% include nav.ejs %>
+
 <div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-10">
+            <div id="map"></div>
+        </div>
+    </div>
     <div class="card-group">
         <div class="row">
             <% for(var i = 0; i < colleges.length; i++){ %>
-            <% include collegetile.ejs %>
+                <% include collegetile.ejs %>
             <% } %>
         </div>
     </div>
 </div>
-
+<script type='text/javascript'>
+    var collegeWP =<%-JSON.stringify(colleges)%>
+    var routeNeeded = 0;
+</script>
 <% include footer.ejs %>

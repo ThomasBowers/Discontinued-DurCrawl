@@ -50,6 +50,11 @@ card {
     height: auto;
     float: top;
 }
+#map {
+    height: 50vh;
+    width: auto;
+    margin: 3vh 5vw;
+}
 @media only screen (min-width: 768px) {
     .college-card-img {
         max-width: 100%;

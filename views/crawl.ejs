@@ -1,6 +1,9 @@
 <% include head.ejs %>
 <% include nav.ejs %>
 <div class="container-fluid">
+    <div class="col-md-10">
+        <div id="map"></div>
+    </div>
     <div class="card-group">
         <div class="row">
             <% for(var i = 0; i < colleges.length; i++){ %>
@@ -9,5 +12,8 @@
         </div>
     </div>
 </div>
-
+<script type='text/javascript'>
+    var collegeWP =<%-JSON.stringify(colleges)%>
+    var routeNeeded = 1;
+</script>
 <% include footer.ejs %>
