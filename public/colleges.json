@@ -5,7 +5,7 @@
       "lat": 54.773075,
       "long": -1.564931,
       "open": "2.30",
-      "close": 24,
+      "close": 23,
       "image": "/images/cuths_bailey.png",
       "type": "other",
       "order": 16
@@ -15,7 +15,7 @@
       "lat": 54.777361,
       "long": -1.565687,
       "open": "2.30",
-      "close": 24,
+      "close": 23,
       "image": "/images/hildbede.png",
       "type": "other",
       "order": 15
@@ -25,7 +25,7 @@
       "lat": 54.775612,
       "long": -1.576249,
       "open": "2.30",
-      "close": 24,
+      "close": 23,
       "image": "/images/castle.png",
       "type": "bailey",
       "order": 14
@@ -35,7 +35,7 @@
       "lat": 54.774811,
       "long": -1.574407,
       "open": "2.30",
-      "close": 24,
+      "close": 23,
       "image": "/images/twatfeild.png",
       "type": "bailey",
       "order": 13
@@ -45,7 +45,7 @@
       "lat": 54.773304,
       "long": -1.574801,
       "open": "2.30",
-      "close": 24,
+      "close": 23,
       "image": "/images/chads.png",
       "type": "bailey",
       "order": 12
@@ -55,7 +55,7 @@
       "lat": 54.772094,
       "long": -1.575701,
       "open": "2.30",
-      "close": 24,
+      "close": 23,
       "image": "/images/johns.png",
       "type": "bailey",
       "order": 11
