@@ -14,10 +14,9 @@ router.get('/', function(req, res) {
     output = JSON.parse(data);
     colleges = output.colleges;
     colleges = calc.byType(colleges,"all");
-    //times = output.dmatrix;
-    //timeA = calc.getTimeArray(colleges, times);
-    //console.log(timeA);
-    res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
+    times = output.dmatrix;
+    timeA = calc.getTimeArray(colleges, times);
+    res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});
   });
 });
 router.post('/', function(req, res) {
@@ -32,10 +31,9 @@ router.post('/', function(req, res) {
       }
     }
     colleges = calc.byType(collegeOn, "all");
-    //times = output.dmatrix;
-    //timeA = calc.getTimeArray(colleges, times);
-    //console.log(timeA);
-    res.render('crawl', {title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
+    times = output.dmatrix;
+    timeA = calc.getTimeArray(colleges, times);
+    res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});
   });
 });
 router.get('/hill', function(req, res) {
@@ -44,8 +42,9 @@ router.get('/hill', function(req, res) {
     output = JSON.parse(data);
     colleges = output.colleges;
     colleges = calc.byType(colleges,"hill");
-    res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
-  });
+    times = output.dmatrix;
+    timeA = calc.getTimeArray(colleges, times);
+    res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
 
 });
 router.get('/bailey', function(req, res) {
@@ -54,8 +53,9 @@ router.get('/bailey', function(req, res) {
     output = JSON.parse(data);
     colleges = output.colleges;
     colleges = calc.byType(colleges,"bailey");
-    res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
-  });
+    times = output.dmatrix;
+    timeA = calc.getTimeArray(colleges, times);
+    res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
 
 });
 router.get('/baileyplus', function(req, res) {
@@ -64,8 +64,9 @@ router.get('/baileyplus', function(req, res) {
     output = JSON.parse(data);
     colleges = output.colleges;
     colleges = calc.byType(colleges,"plus");
-    res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
-  });
+    times = output.dmatrix;
+    timeA = calc.getTimeArray(colleges, times);
+    res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
 
 });
 module.exports = router;

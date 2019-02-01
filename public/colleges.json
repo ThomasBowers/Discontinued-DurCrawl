@@ -5,7 +5,7 @@
       "lat": 54.773075,
       "long": -1.564931,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/cuths_bailey.png",
       "type": "other",
       "order": 16
@@ -15,7 +15,7 @@
       "lat": 54.777361,
       "long": -1.565687,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/hildbede.png",
       "type": "other",
       "order": 15
@@ -25,7 +25,7 @@
       "lat": 54.775612,
       "long": -1.576249,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/castle.png",
       "type": "bailey",
       "order": 14
@@ -35,7 +35,7 @@
       "lat": 54.774811,
       "long": -1.574407,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/twatfeild.png",
       "type": "bailey",
       "order": 13
@@ -45,7 +45,7 @@
       "lat": 54.773304,
       "long": -1.574801,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/chads.png",
       "type": "bailey",
       "order": 12
@@ -55,7 +55,7 @@
       "lat": 54.772094,
       "long": -1.575701,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/johns.png",
       "type": "bailey",
       "order": 11
@@ -65,7 +65,7 @@
       "lat": 54.770915,
       "long": -1.577428,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/cuths_bailey.png",
       "type": "bailey",
       "order": 10
@@ -75,7 +75,7 @@
       "lat": 54.766405,
       "long": -1.577807,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/marys.png",
       "type": "hill",
       "order": 9
@@ -85,7 +85,7 @@
       "lat": 54.764481,
       "long": -1.579856,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/trevs.png",
       "type": "hill",
       "order": 8
@@ -97,7 +97,7 @@
       "lat": 54.765173,
       "long": -1.584268,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/aidans.png",
       "type": "hill",
       "order": 7
@@ -107,7 +107,7 @@
       "lat": 54.763257,
       "long": -1.581062,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/vanmildert.png",
       "type": "hill",
       "order": 6
@@ -117,7 +117,7 @@
       "lat": 54.764743,
       "long": -1.575700,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/grey.png",
       "type": "hill",
       "order": 5
@@ -127,7 +127,7 @@
       "lat": 54.762793,
       "long": -1.576540,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/collingwood.png",
       "type": "hill",
       "order": 4
@@ -137,7 +137,7 @@
       "lat": 54.759846,
       "long": -1.579856,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/butler.png",
       "type": "hill",
       "order": 3
@@ -147,7 +147,7 @@
       "lat": 54.759700,
       "long": -1.581322,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/cuths_bailey.png",
       "type": "hill",
       "order": 2
@@ -157,7 +157,7 @@
       "lat": 54.759684,
       "long": -1.580923,
       "open": "2.30",
-      "close": 12,
+      "close": 24,
       "image": "/images/cuths_bailey.png",
       "type": "hill",
       "order": 1

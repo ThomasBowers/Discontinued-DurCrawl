@@ -1,3 +1,4 @@
+var moment = require('moment');
 module.exports = {
     sort: function (colleges) {
         var output = [];
@@ -31,33 +32,40 @@ module.exports = {
         return output.filter(Boolean);
     },
     getTimeArray: function (colleges, times) {
-        console.log(times[15][14]);
-        console.log(colleges[15].order);
-
+        var currentTime = new moment();
+        currentTime.format('HH:mm');
+        currentTime.hour(parseInt(colleges[colleges.length - 1].close));
+        currentTime.minute(0);
         var timeA = new Array(colleges.length);
-        var sp, ep;
         for (var i = 0; i < timeA.length; i++) {
-            timeA[i] = new Array(2);
+            timeA[i] = new Array(3);
         }
-        var endTime = colleges[colleges.length-1].close;
-        var currentTime = endTime;
-        for (var j = colleges.length-1; j > 0; j--) {
-            timeA[j][1] = currentTime;
-            currentTime -= toTime(15);
-            timeA[j][0] = currentTime;
-            ep = parseInt(colleges[j].order)-1;
-            sp = parseInt(colleges[j - 1].order)-1;
-            console.log(sp);
-            console.log(ep);
-            currentTime -= toDec(times[ep][sp]);
-            console.log(timeA)
+        var walkTime;
+        for (var j = colleges.length - 1; j >= 0; j--) {
+            if (currentTime.minute() < 10) {
+                timeA[j][1] = String(currentTime.hour() + ":0" + currentTime.minute());
+
+            } else {
+                timeA[j][1] = String(currentTime.hour() + ":" + currentTime.minute());
+            }
+            currentTime.subtract(15, "m");
+            if (currentTime.minute() < 10) {
+                timeA[j][0] = String(currentTime.hour() + ":0" + currentTime.minute());
+
+            } else {
+                timeA[j][0] = String(currentTime.hour() + ":" + currentTime.minute());
+            }
+            if (j === colleges.length-1) {
+                timeA[j][3] = 0
+            } else {
+                timeA[j][3] = walkTime
+            }
+            if (j !== 0) {
+                walkTime = times[colleges[j].order - 1][colleges[j - 1].order - 1];
+            }
+
+            currentTime.subtract(walkTime, "m");
         }
         return timeA
     }
 };
-function toTime(Dec) {
-    return (Dec/60)*100;
-}
-function toDec(time) {
-    return (time*0.6)
-}
