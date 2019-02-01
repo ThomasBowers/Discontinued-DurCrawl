@@ -48,7 +48,7 @@ router.get('/hill', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"hill", 0);
+    colleges = calc.byType(colleges,"hill", 1);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
@@ -59,7 +59,7 @@ router.get('/bailey', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"bailey", 0);
+    colleges = calc.byType(colleges,"bailey", 1);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
@@ -70,7 +70,7 @@ router.get('/baileyplus', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"plus", 0);
+    colleges = calc.byType(colleges,"plus", 1);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
