@@ -1,93 +1,105 @@
 <% include head.ejs %>
 <% include nav.ejs %>
 <div class="container-fluid text-center white-colour">
-    <form action="/crawl" method="post">
-        <h3><u><strong>Select colleges</strong></u></h3>
-        <h4>Bailey</h4>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="10">
-            <label class="form-check-label" for="exampleCheck1">St Cuthbert's (Bailey Site)</label>
-        </div>
+    <div class="container">
+        <form action="/crawl" method="post">
+            <div class="row justify-content-md-center">
+                <h3><u><strong>Select colleges</strong></u></h3>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-md-3">
+                    <h4 class="spacing">Bailey</h4>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="10">
+                        <label class="form-check-label" for="exampleCheck1">St Cuthbert's (Bailey Site)</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="11">
-            <label class="form-check-label" for="exampleCheck1">St John's</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="11">
+                        <label class="form-check-label" for="exampleCheck1">St John's</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="12">
-            <label class="form-check-label" for="exampleCheck1">St Chad's</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="12">
+                        <label class="form-check-label" for="exampleCheck1">St Chad's</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="13">
-            <label class="form-check-label" for="exampleCheck1">Hatfield</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="13">
+                        <label class="form-check-label" for="exampleCheck1">Hatfield</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="14">
-            <label class="form-check-label" for="exampleCheck1">University (Castle)</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="14">
+                        <label class="form-check-label" for="exampleCheck1">University (Castle)</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="spacing">Hill</h4>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="1">
+                        <label class="form-check-label" for="exampleCheck1">John Snow</label>
+                    </div>
 
-        <h4 class="spacing">Hill</h4>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="1">
-            <label class="form-check-label" for="exampleCheck1">John Snow</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="2">
+                        <label class="form-check-label" for="exampleCheck1">Stephenson</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="2">
-            <label class="form-check-label" for="exampleCheck1">Stephenson</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="3">
+                        <label class="form-check-label" for="exampleCheck1">Josephine Butler</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="3">
-            <label class="form-check-label" for="exampleCheck1">Josephine Butler</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="6">
+                        <label class="form-check-label" for="exampleCheck1">Van Mildert</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="6">
-            <label class="form-check-label" for="exampleCheck1">Van Mildert</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="7">
+                        <label class="form-check-label" for="exampleCheck1">St Aidan's</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="7">
-            <label class="form-check-label" for="exampleCheck1">St Aidan's</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="8">
+                        <label class="form-check-label" for="exampleCheck1">Trevelyan</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="8">
-            <label class="form-check-label" for="exampleCheck1">Trevelyan</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="4">
+                        <label class="form-check-label" for="exampleCheck1">Collingwood</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="4">
-            <label class="form-check-label" for="exampleCheck1">Collingwood</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="5">
+                        <label class="form-check-label" for="exampleCheck1">Grey</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="5">
-            <label class="form-check-label" for="exampleCheck1">Grey</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="9">
+                        <label class="form-check-label" for="exampleCheck1">St Mary's</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="spacing">Other</h4>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="16">
+                        <label class="form-check-label" for="exampleCheck1">St Cuthbert's (Brooks Site)</label>
+                    </div>
 
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="9">
-            <label class="form-check-label" for="exampleCheck1">St Mary's</label>
-        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="15">
+                        <label class="form-check-label" for="exampleCheck1">St Hild & St Bede</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <input type="submit" class="btn btn-dark" value="Create Crawl">
+            </div>
+        </form>
+    </div>
 
-        <h4 class="spacing">Other</h4>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="16">
-            <label class="form-check-label" for="exampleCheck1">St Cuthbert's (Brooks Site)</label>
-        </div>
-
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" name="15">
-            <label class="form-check-label" for="exampleCheck1">St Hild & St Bede</label>
-        </div>
-
-        <input type="submit" class="btn btn-dark" value="Create Crawl">
-    </form>
 </div>
 
 <% include footer.ejs %>
