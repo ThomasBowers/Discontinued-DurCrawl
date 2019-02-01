@@ -1,4 +1,4 @@
-#DurCrawl
+# DurCrawl
 A complete bar crawl of all the college bars in durham hosted on durcrawl.com
 
 ## Todo List
