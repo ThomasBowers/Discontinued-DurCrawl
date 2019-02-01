@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"all");
+    colleges = calc.byType(colleges,"all", 11);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});
@@ -30,7 +30,14 @@ router.post('/', function(req, res) {
         collegeOn.push(colleges[i]);
       }
     }
-    colleges = calc.byType(collegeOn, "all");
+    console.log(req.body);
+    if(req.body[req.body.startC]) {
+        var startC = parseInt(req.body.startC);
+    }
+    else{
+      startC = 1;
+    }
+    colleges = calc.byType(collegeOn,"all", startC);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});
@@ -41,7 +48,7 @@ router.get('/hill', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"hill");
+    colleges = calc.byType(colleges,"hill", 0);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
@@ -52,7 +59,7 @@ router.get('/bailey', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"bailey");
+    colleges = calc.byType(colleges,"bailey", 0);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
@@ -63,7 +70,7 @@ router.get('/baileyplus', function(req, res) {
     if (err) throw err;
     output = JSON.parse(data);
     colleges = output.colleges;
-    colleges = calc.byType(colleges,"plus");
+    colleges = calc.byType(colleges,"plus", 0);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
     res.render('crawl',{ title: 'Your Crawl', crawl: 1, times: timeA, colleges: colleges});  });
