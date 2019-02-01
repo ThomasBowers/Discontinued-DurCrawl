@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var calc = require('../crawlBackend');
-var colleges;
+var colleges, output, times;
 
 /* read colleges.json and add to colleges object*/
 
@@ -11,19 +11,39 @@ var colleges;
 router.get('/', function(req, res) {
   fs.readFile('public/colleges.json', function handleFile(err, data){
     if (err) throw err;
-    colleges = JSON.parse(data).colleges;
+    output = JSON.parse(data);
+    colleges = output.colleges;
     colleges = calc.byType(colleges,"all");
-    var times;
+    //times = output.dmatrix;
+    //timeA = calc.getTimeArray(colleges, times);
+    //console.log(timeA);
     res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
   });
-
+});
+router.post('/', function(req, res) {
+  fs.readFile('public/colleges.json', function handleFile(err, data) {
+    if (err) throw err;
+    output = JSON.parse(data);
+    colleges = output.colleges;
+    var collegeOn = [];
+    for(var i = 0; i < colleges.length;i++){
+      if(req.body[colleges[i].order]){
+        collegeOn.push(colleges[i]);
+      }
+    }
+    colleges = calc.byType(collegeOn, "all");
+    //times = output.dmatrix;
+    //timeA = calc.getTimeArray(colleges, times);
+    //console.log(timeA);
+    res.render('crawl', {title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
+  });
 });
 router.get('/hill', function(req, res) {
   fs.readFile('public/colleges.json', function handleFile(err, data){
     if (err) throw err;
-    colleges = JSON.parse(data).colleges;
+    output = JSON.parse(data);
+    colleges = output.colleges;
     colleges = calc.byType(colleges,"hill");
-    var times;
     res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
   });
 
@@ -31,9 +51,9 @@ router.get('/hill', function(req, res) {
 router.get('/bailey', function(req, res) {
   fs.readFile('public/colleges.json', function handleFile(err, data){
     if (err) throw err;
-    colleges = JSON.parse(data).colleges;
+    output = JSON.parse(data);
+    colleges = output.colleges;
     colleges = calc.byType(colleges,"bailey");
-    var times;
     res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
   });
 
@@ -41,9 +61,9 @@ router.get('/bailey', function(req, res) {
 router.get('/baileyplus', function(req, res) {
   fs.readFile('public/colleges.json', function handleFile(err, data){
     if (err) throw err;
-    colleges = JSON.parse(data).colleges;
+    output = JSON.parse(data);
+    colleges = output.colleges;
     colleges = calc.byType(colleges,"plus");
-    var times;
     res.render('crawl',{ title: 'Your Crawl', crawl: 0, times: times, colleges: colleges});
   });
 
