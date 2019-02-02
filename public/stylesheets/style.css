@@ -50,6 +50,11 @@ card {
     height: auto;
     float: top;
 }
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
 #map {
     height: 50vh;
     width: auto;

@@ -4,6 +4,16 @@ function init_map(newNode, offset) {
         zoom: 14,
         center: durham_location
     });
+    if (navigator.geolocation && startL) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
+        }, function () { console.log('gps-unavailable')
+        });
+    }
     var mapPlot = [];
     var latlong = [];
     for (var j = 0; j < collegeWP.length; j++) {
