@@ -20,6 +20,7 @@ function init_map(newNode, offset) {
     if (routeNeeded) {
         displayRoute(latlong[0], latlong[latlong.length - 1], map, latlong.slice(1, latlong.length - 1));
     }
+
 };
 
 function displayRoute(start, end, map, points) {
@@ -30,7 +31,8 @@ function displayRoute(start, end, map, points) {
         origin: start,
         destination: end,
         travelMode: google.maps.TravelMode.WALKING,
-        waypoints: points
+        waypoints: points,
+        optimizeWaypoints: false
     };
     var directionsService = new google.maps.DirectionsService();
     directionsService.route(request, function (response, status) {
@@ -39,3 +41,4 @@ function displayRoute(start, end, map, points) {
         }
     });
 }
+
