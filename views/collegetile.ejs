@@ -8,7 +8,7 @@
                 <h5 class="card-title">
                     <%-alphabet[i]%>) <%- colleges[i].name %>
                 </h5>
-                <p class="card-text">Opens: <%- colleges[i].open%>PM, Closes:<%- colleges[i].close%>AM</p>
+                <p class="card-text">Opens: <%- colleges[i].open%>, Closes: <%- colleges[i].close%>:00</p>
                 <p class="card-text">Location: <%- colleges[i].type%></p>
                 <% if (crawl){ %>
                     <p class="card-text">Arrival: <%- times[i][0] %> Departure: <%- times[i][1] %>  </p><p><%if(times[i][3] == 0){ %> The End<%}else{%>Walk to Next Bar <%- times[i][3]%> Minutes<%}%></p>

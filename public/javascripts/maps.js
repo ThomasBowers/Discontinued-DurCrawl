@@ -1,5 +1,6 @@
 function init_map(newNode, offset) {
     var durham_location = {lat: 54.770764, lng: -1.572726};
+    var route = [];
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
         center: durham_location,
@@ -90,21 +91,44 @@ function init_map(newNode, offset) {
         navigator.geolocation.getCurrentPosition(function (position) {
             console.log('got-pos');
             latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
-            for (var j = 0; j < collegeWP.length; j++) {
-                if (routeNeeded) {
+            if (routeNeeded) {
+                mapPlot.push(new google.maps.Marker({
+                    position: {lat: position.coords.latitude, lng: position.coords.longitude},
+                    icon: '/images/start-icon.png',
+                    map: map,
+                    title: 'start'
+                }));
+                for (var j = 0; j < collegeWP.length-1; j++) {
                     latlong.push({location: new google.maps.LatLng(collegeWP[j].lat, collegeWP[j].long)});
-                } else {
                     mapPlot.push(new google.maps.Marker({
                         position: {lat: collegeWP[j].lat, lng: collegeWP[j].long},
+                        icon: '/images/beer-sm.png',
+                        map: map,
+                        title: collegeWP[j].name
+                    }));
+                }
+                latlong.push({location: new google.maps.LatLng(collegeWP[collegeWP.length-1].lat, collegeWP[collegeWP.length-1].long)});
+                mapPlot.push(new google.maps.Marker({
+                    position: {lat: collegeWP[collegeWP.length-1].lat, lng: collegeWP[collegeWP.length-1].long},
+                    icon: '/images/finish.png',
+                    map: map,
+                    title: 'finish'
+                }));
+            } else {
+                for (var j = 0; j < collegeWP.length; j++) {
+                    mapPlot.push(new google.maps.Marker({
+                        position: {lat: collegeWP[j].lat, lng: collegeWP[j].long},
+                        icon: '/images/beer-sm.png',
                         map: map,
                         title: collegeWP[j].name
                     }));
                 }
             }
-            latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
+
+ //           latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
             if (routeNeeded) {
                 console.log('routing');
-                displayRoute(latlong[0], latlong[latlong.length - 1], map, latlong.slice(1, latlong.length - 1));
+                displayRoute(latlong[0], latlong[latlong.length-1], map, latlong.slice(1, latlong.length-1));
             }
         }, function () {
         });
@@ -114,6 +138,11 @@ function init_map(newNode, offset) {
         for (var j = 0; j < collegeWP.length; j++) {
             if (routeNeeded) {
                 latlong.push({location: new google.maps.LatLng(collegeWP[j].lat, collegeWP[j].long)});
+                mapPlot.push(new google.maps.Marker({
+                    position: {lat: collegeWP[j].lat, lng: collegeWP[j].long},
+                    map: map,
+                    title: collegeWP[j].name
+                }));
             } else {
                 mapPlot.push(new google.maps.Marker({
                     position: {lat: collegeWP[j].lat, lng: collegeWP[j].long},
@@ -124,7 +153,7 @@ function init_map(newNode, offset) {
         }
         if (routeNeeded) {
             console.log('routing');
-            displayRoute(latlong[0], latlong[latlong.length - 1], map, latlong.slice(1, latlong.length - 1));
+            displayRoute(latlong[0], latlong[latlong.length-1], map, latlong.slice(1, latlong.length - 1));
         }
 
     }
@@ -132,7 +161,9 @@ function init_map(newNode, offset) {
 };
 
 function displayRoute(start, end, map, points) {
-    var directionsDisplay = new google.maps.DirectionsRenderer();// also, constructor can get "DirectionsRendererOptions" object
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        suppressMarkers: true
+    });// also, constructor can get "DirectionsRendererOptions" object
     directionsDisplay.setMap(map); // map should be already initialized.
 
     var request = {
@@ -140,7 +171,7 @@ function displayRoute(start, end, map, points) {
         destination: end,
         travelMode: google.maps.TravelMode.WALKING,
         waypoints: points,
-        optimizeWaypoints: false
+        optimizeWaypoints: true
     };
     var directionsService = new google.maps.DirectionsService();
     directionsService.route(request, function (response, status) {
