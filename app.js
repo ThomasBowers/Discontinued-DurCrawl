@@ -35,6 +35,7 @@ app.use('/hillcrawl', crawlRouter);
 app.use('/baileycrawl', crawlRouter);
 app.use('/fullcrawl', crawlRouter);
 
+app.use(express.static(__dirname, { dotfiles: 'allow' } ));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
