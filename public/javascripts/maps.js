@@ -98,7 +98,7 @@ function init_map(newNode, offset) {
                     map: map,
                     title: 'start'
                 }));
-                for (var j = 0; j < collegeWP.length-1; j++) {
+                for (var j = 0; j < collegeWP.length - 1; j++) {
                     latlong.push({location: new google.maps.LatLng(collegeWP[j].lat, collegeWP[j].long)});
                     mapPlot.push(new google.maps.Marker({
                         position: {lat: collegeWP[j].lat, lng: collegeWP[j].long},
@@ -107,9 +107,9 @@ function init_map(newNode, offset) {
                         title: collegeWP[j].name
                     }));
                 }
-                latlong.push({location: new google.maps.LatLng(collegeWP[collegeWP.length-1].lat, collegeWP[collegeWP.length-1].long)});
+                latlong.push({location: new google.maps.LatLng(collegeWP[collegeWP.length - 1].lat, collegeWP[collegeWP.length - 1].long)});
                 mapPlot.push(new google.maps.Marker({
-                    position: {lat: collegeWP[collegeWP.length-1].lat, lng: collegeWP[collegeWP.length-1].long},
+                    position: {lat: collegeWP[collegeWP.length - 1].lat, lng: collegeWP[collegeWP.length - 1].long},
                     icon: '/images/finish.png',
                     map: map,
                     title: 'finish'
@@ -125,10 +125,10 @@ function init_map(newNode, offset) {
                 }
             }
 
- //           latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
+            //           latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
             if (routeNeeded) {
                 console.log('routing');
-                displayRoute(latlong[0], latlong[latlong.length-1], map, latlong.slice(1, latlong.length-1));
+                displayRoute(latlong[0], latlong[latlong.length - 1], map, latlong.slice(1, latlong.length - 1));
             }
         }, function () {
         });
@@ -153,12 +153,12 @@ function init_map(newNode, offset) {
         }
         if (routeNeeded) {
             console.log('routing');
-            displayRoute(latlong[0], latlong[latlong.length-1], map, latlong.slice(1, latlong.length - 1));
+            displayRoute(latlong[0], latlong[latlong.length - 1], map, latlong.slice(1, latlong.length - 1));
         }
 
     }
 
-};
+}
 
 function displayRoute(start, end, map, points) {
     var directionsDisplay = new google.maps.DirectionsRenderer({

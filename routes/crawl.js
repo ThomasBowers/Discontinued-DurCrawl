@@ -35,8 +35,9 @@ router.post('/', function(req, res) {
         var startC = parseInt(req.body.startC);
     }
     else{
-      startC = 1;
+      startC = collegeOn[0].order;
     }
+    console.log(startC);
     colleges = calc.byType(collegeOn,"all", startC);
     times = output.dmatrix;
     timeA = calc.getTimeArray(colleges, times);
