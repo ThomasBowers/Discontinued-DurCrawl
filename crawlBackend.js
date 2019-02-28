@@ -32,7 +32,7 @@ module.exports = {
         output = output.filter(Boolean);
         var slicemark;
         for (var j = 0; j < output.length; j++) {
-            if(output[j].order === startC){
+            if (output[j].order === startC) {
                 slicemark = j;
             }
         }
@@ -41,11 +41,52 @@ module.exports = {
         return first.concat(second);
 
     },
+    openClose: function (colleges) {
+        let openings = [[], []];
+        for (let x = 0; x < colleges.length; x++) {
+            openings[0].push();
+            openings[1].push();
+        }
+        let tOpen, tClose, tString;
+        for (let x = 0; x < colleges.length; x++) {
+            tOpen = this.convertTime(colleges[x].open);
+            tClose = this.convertTime(colleges[x].close);
+            if (tOpen.hour() === 0) {
+                if (tOpen.minute() === 0) {
+                    tString = "00:00"
+                } else {
+                    tString = String("00:" + tOpen.minute())
+                }
+            } else if(tOpen.minute() === 0){
+                tString = String(tOpen.hour() + ":00");
+            }else{
+                tString = String(tOpen.hour() + ":" + tOpen.minute());
+            }
+            openings[0][x] = tString;
+            if (tClose.hour() === 0) {
+                if (tClose.minute() === 0) {
+                    tString = "00:00"
+                } else {
+                    tString = String("00:" + tClose.minute())
+                }
+            }else if(tClose.minute() === 0){
+                tString = String(tClose.hour() + ":00");
+            } else {
+                tString = String(tClose.hour() + ":" + tClose.minute());
+            }
+            openings[1][x] = tString;
+        }
+        return openings
+    },
+    convertTime: function (rawtime) {
+        var time = new moment();
+        time.format('HH:mm');
+        time.hour(parseInt(rawtime));
+        time.minute((rawtime - parseInt(rawtime)) * 60);
+        return time
+    },
     getTimeArray: function (colleges, times) {
-        var currentTime = new moment();
-        currentTime.format('HH:mm');
-        currentTime.hour(parseInt(colleges[colleges.length - 1].close));
-        currentTime.minute(0);
+        let currentTime = this.convertTime(colleges[colleges.length - 1].close);
         var timeA = new Array(colleges.length);
         for (var i = 0; i < timeA.length; i++) {
             timeA[i] = new Array(3);
