@@ -57,9 +57,9 @@ module.exports = {
                 } else {
                     tString = String("00:" + tOpen.minute())
                 }
-            } else if(tOpen.minute() === 0){
+            } else if (tOpen.minute() === 0) {
                 tString = String(tOpen.hour() + ":00");
-            }else{
+            } else {
                 tString = String(tOpen.hour() + ":" + tOpen.minute());
             }
             openings[0][x] = tString;
@@ -69,7 +69,7 @@ module.exports = {
                 } else {
                     tString = String("00:" + tClose.minute())
                 }
-            }else if(tClose.minute() === 0){
+            } else if (tClose.minute() === 0) {
                 tString = String(tClose.hour() + ":00");
             } else {
                 tString = String(tClose.hour() + ":" + tClose.minute());
@@ -93,6 +93,50 @@ module.exports = {
         }
         var walkTime;
         for (var j = colleges.length - 1; j >= 0; j--) {
+            if (currentTime.minute() < 10) {
+                timeA[j][1] = String(currentTime.hour() + ":0" + currentTime.minute());
+
+            } else {
+                timeA[j][1] = String(currentTime.hour() + ":" + currentTime.minute());
+            }
+            currentTime.subtract(15, "m");
+            if (currentTime.minute() < 10) {
+                timeA[j][0] = String(currentTime.hour() + ":0" + currentTime.minute());
+
+            } else {
+                timeA[j][0] = String(currentTime.hour() + ":" + currentTime.minute());
+            }
+            if (j === colleges.length - 1) {
+                timeA[j][3] = 0
+            } else {
+                timeA[j][3] = walkTime
+            }
+            if (j !== 0) {
+                walkTime = times[colleges[j].order - 1][colleges[j - 1].order - 1];
+            }
+
+            currentTime.subtract(walkTime, "m");
+        }
+        return timeA
+    },
+    walkTime: function (colleges, times) {
+        let totalWalk = 0;
+        for (let j = colleges.length - 1; j >= 0; j--) {
+            totalWalk += times[colleges[j].order - 1][colleges[j - 1].order - 1];
+        }
+        return totalWalk
+    },
+    getTimeArraySS: function (colleges, times, start) {
+        let startTime = this.convertTime(start);
+        let totalWalk = this.walkTime(colleges, times);
+        startTime.add(totalWalk, "m");
+        let currentTime = this.convertTime(colleges[colleges.length - 1].close);
+        console.log(currentTime - startTime);
+        var timeA = new Array(colleges.length);
+        for (let i = 0; i < timeA.length; i++) {
+            timeA[i] = new Array(3);
+        }
+        for (let j = colleges.length - 1; j >= 0; j--) {
             if (currentTime.minute() < 10) {
                 timeA[j][1] = String(currentTime.hour() + ":0" + currentTime.minute());
 
