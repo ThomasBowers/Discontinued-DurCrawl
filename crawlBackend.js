@@ -16,7 +16,7 @@ module.exports = {
             for (var j = 0; j < colleges.length; j++) {
                 output[colleges[j].order - 1] = colleges[j]
             }
-        } else if (location === "plus") {
+        } else if (location === "Plus") {
             for (var j = 0; j < colleges.length; j++) {
                 if (colleges[j].type !== "Hill") {
                     output[colleges[j].order - 1] = colleges[j]
