@@ -87,12 +87,13 @@ function init_map(newNode, offset) {
     });
     var latlong = [];
     var mapPlot = [];
+    console.log(routeNeeded);
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             let j;
             console.log('got-pos');
             latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
-            if (routeNeeded) {
+            if (routeNeeded === 1) {
                 mapPlot.push(new google.maps.Marker({
                     position: {lat: position.coords.latitude, lng: position.coords.longitude},
                     icon: '/images/start-icon.png',
@@ -127,7 +128,7 @@ function init_map(newNode, offset) {
             }
 
             //           latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
-            if (routeNeeded) {
+            if (routeNeeded === 1) {
                 console.log('routing');
                 displayRoute(latlong[0], latlong[latlong.length - 1], map, latlong.slice(1, latlong.length - 1));
             }

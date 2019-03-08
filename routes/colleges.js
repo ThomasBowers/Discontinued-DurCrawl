@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
         if (err) throw err;
         colleges = JSON.parse(data).colleges;
         let opc = calc.openClose(colleges);
-        res.render('crawl', {
+        res.render('colleges', {
             title: 'Your Crawl',
             crawl: 0,
             colleges: colleges,
