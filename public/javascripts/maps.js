@@ -89,6 +89,7 @@ function init_map(newNode, offset) {
     var mapPlot = [];
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
+            let j;
             console.log('got-pos');
             latlong.push({location: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)});
             if (routeNeeded) {
@@ -98,7 +99,7 @@ function init_map(newNode, offset) {
                     map: map,
                     title: 'start'
                 }));
-                for (var j = 0; j < collegeWP.length - 1; j++) {
+                for (j = 0; j < collegeWP.length - 1; j++) {
                     latlong.push({location: new google.maps.LatLng(collegeWP[j].lat, collegeWP[j].long)});
                     mapPlot.push(new google.maps.Marker({
                         position: {lat: collegeWP[j].lat, lng: collegeWP[j].long},
@@ -115,7 +116,7 @@ function init_map(newNode, offset) {
                     title: 'finish'
                 }));
             } else {
-                for (var j = 0; j < collegeWP.length; j++) {
+                for (j = 0; j < collegeWP.length; j++) {
                     mapPlot.push(new google.maps.Marker({
                         position: {lat: collegeWP[j].lat, lng: collegeWP[j].long},
                         icon: '/images/beer-sm.png',
