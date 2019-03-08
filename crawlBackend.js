@@ -18,7 +18,7 @@ module.exports = {
             }
         } else if (location === "plus") {
             for (var j = 0; j < colleges.length; j++) {
-                if (colleges[j].type !== "hill") {
+                if (colleges[j].type !== "Hill") {
                     output[colleges[j].order - 1] = colleges[j]
                 }
             }
@@ -131,7 +131,6 @@ module.exports = {
         let totalWalk = this.walkTime(colleges, times);
         startTime.add(totalWalk, "m");
         let currentTime = this.convertTime(colleges[colleges.length - 1].close);
-        console.log(currentTime - startTime);
         var timeA = new Array(colleges.length);
         for (let i = 0; i < timeA.length; i++) {
             timeA[i] = new Array(3);

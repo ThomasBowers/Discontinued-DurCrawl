@@ -62,7 +62,7 @@ router.get('/hill', function (req, res) {
         if (err) throw err;
         output = JSON.parse(data);
         colleges = output.colleges;
-        colleges = calc.byType(colleges, "hill", 1);
+        colleges = calc.byType(colleges, "Hill", 1);
         times = output.dmatrix;
         timeA = calc.getTimeArray(colleges, times);
         let opc = calc.openClose(colleges);
@@ -83,7 +83,7 @@ router.get('/bailey', function (req, res) {
         if (err) throw err;
         output = JSON.parse(data);
         colleges = output.colleges;
-        colleges = calc.byType(colleges, "bailey", 10);
+        colleges = calc.byType(colleges, "Bailey", 10);
         times = output.dmatrix;
         timeA = calc.getTimeArray(colleges, times);
         let opc = calc.openClose(colleges);
@@ -103,7 +103,7 @@ router.get('/baileyplus', function (req, res) {
         if (err) throw err;
         output = JSON.parse(data);
         colleges = output.colleges;
-        colleges = calc.byType(colleges, "plus", 10);
+        colleges = calc.byType(colleges, "Plus", 10);
         times = output.dmatrix;
         timeA = calc.getTimeArray(colleges, times);
         let opc = calc.openClose(colleges);
