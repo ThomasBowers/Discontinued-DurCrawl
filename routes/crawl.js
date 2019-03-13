@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var calc = require('../crawlBackend');
-var colleges, output, times;
+var colleges, output, times, o;
 var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'U', 'V', 'X', 'Y', 'Z'];
 /* read colleges.json and add to colleges object*/
 
@@ -15,7 +15,11 @@ router.get('/', function (req, res) {
         colleges = output.colleges;
         colleges = calc.byType(colleges, "all", 1);
         times = output.dmatrix;
-        timeA = calc.getTimeArray(colleges, times);
+        o = calc.getBestValid(colleges, times);
+        timeA = o[0];
+        colleges = o[1];
+        //console.log(timeA);
+       // console.log(colleges);
         let opc = calc.openClose(colleges);
         res.render('crawl', {
             title: 'Your Crawl',
@@ -45,7 +49,9 @@ router.post('/', function (req, res) {
         }
         colleges = calc.byType(collegeOn, "all", startC);
         times = output.dmatrix;
-        let timeA = calc.getTimeArray(colleges, times);
+        o = calc.getBestValid(colleges, times);
+        timeA = o[0];
+        colleges = o[1];
         let opc = calc.openClose(colleges);
         res.render('crawl', {
             title: 'Your Crawl',
@@ -64,7 +70,9 @@ router.get('/hill', function (req, res) {
         colleges = output.colleges;
         colleges = calc.byType(colleges, "Hill", 1);
         times = output.dmatrix;
-        timeA = calc.getTimeArray(colleges, times);
+        o = calc.getBestValid(colleges, times);
+        timeA = o[0];
+        colleges = o[1];
         let opc = calc.openClose(colleges);
         res.render('crawl', {
             title: 'Your Crawl',
@@ -85,7 +93,9 @@ router.get('/bailey', function (req, res) {
         colleges = output.colleges;
         colleges = calc.byType(colleges, "Bailey", 10);
         times = output.dmatrix;
-        timeA = calc.getTimeArray(colleges, times);
+        o = calc.getBestValid(colleges, times);
+        timeA = o[0];
+        colleges = o[1];
         let opc = calc.openClose(colleges);
         res.render('crawl', {
             title: 'Your Crawl',
@@ -105,7 +115,9 @@ router.get('/baileyplus', function (req, res) {
         colleges = output.colleges;
         colleges = calc.byType(colleges, "Plus", 10);
         times = output.dmatrix;
-        timeA = calc.getTimeArray(colleges, times);
+        o = calc.getBestValid(colleges, times);
+        timeA = o[0];
+        colleges = o[1];
         let opc = calc.openClose(colleges);
         res.render('crawl', {
             title: 'Your Crawl',

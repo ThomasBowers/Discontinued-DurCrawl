@@ -85,21 +85,101 @@ module.exports = {
         time.minute((rawtime - parseInt(rawtime)) * 60);
         return time
     },
-    getTimeArray: function (colleges, times) {
+    orderandtimes: function (colleges, times) {
+        let drinksTime = 30;
+        let timeArray = this.getTimeArray(colleges, times, drinksTime);
+        console.log();
+        console.log(timeArray);
+        while (!this.checkValidity(colleges, timeArray) && drinksTime > 10) {
+            while (!this.checkValidity(colleges, timeArray) && drinksTime > 10) {
+                drinksTime -= 2;
+                timeArray = this.getTimeArray(colleges, times, drinksTime);
+                console.log('readycheck: ' + drinksTime)
+            }
+            if (this.checkValidity(colleges, timeArray)) {
+                console.log('valid');
+                //console.log('list of colleges');
+                //console.log(colleges);
+                //console.log(timeArray);
+                let returner = [timeArray, colleges, drinksTime];
+                return (returner)            }
+            console.log('shuffling');
+            colleges = this.shuffle(colleges);
+            timeArray = this.getTimeArray(colleges, times, drinksTime);
+            drinksTime = 30;
+        }
+        console.log('valid instant');
+        //console.log('list of colleges');
+       // console.log(colleges);
+      //  console.log(timeArray);
+        let returner = [timeArray, colleges, drinksTime];
+        return (returner)
+
+    },
+    totalTime: function (timeA) {
+        let start = timeA[0][0];
+        let fin = timeA[timeA.length - 1][1];
+        if (fin === '0:00') {
+            fin = '24:00'
+        }
+        let total = (60 * parseInt(fin.substring(0, 2)) - 60 * parseInt(start.substring(0, 2)) + parseInt(fin.substring(3, 5)) - parseInt(start.substring(3, 5)));
+        console.log('total time :' + total);
+        return total;
+    },
+    getBestValid: function (colleges, times) {
+        let collegelistA = colleges;
+        let collegelistB = this.shuffle([...colleges]);
+        let collegelistC = this.shuffle([...colleges]);
+        let coltimA = this.orderandtimes(collegelistA, times);
+        let coltimB = this.orderandtimes(collegelistB, times);
+        let coltimC = this.orderandtimes(collegelistC, times);
+        let totals = [this.totalTime(coltimA[0])- colleges.length*coltimA[2], this.totalTime(coltimB[0]) - colleges.length*coltimB[2], this.totalTime(coltimC[0])-colleges.length*coltimC[2]];
+        console.log(totals);
+        if (totals[0] <= totals[1] && totals[0] <= totals[2]) {
+            console.log('returning A');
+            return coltimA
+        } else if (totals[1] <= totals[0] && totals[1] <= totals[2]) {
+            console.log('returning B');
+            return coltimB
+        } else {
+            console.log('returning A');
+            return coltimC
+        }
+    },
+    shuffle: function (array) {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    },
+    getTimeArray: function (colleges, times, drinksTime) {
         let currentTime = this.convertTime(colleges[colleges.length - 1].close);
-        var timeA = new Array(colleges.length);
-        for (var i = 0; i < timeA.length; i++) {
+        //      console.log(currentTime.hours() + ':'+currentTime.minute());
+        const timeA = new Array(colleges.length);
+        for (let i = 0; i < timeA.length; i++) {
             timeA[i] = new Array(3);
         }
-        var walkTime;
-        for (var j = colleges.length - 1; j >= 0; j--) {
+        let walkTime;
+        for (let j = colleges.length - 1; j >= 0; j--) {
             if (currentTime.minute() < 10) {
                 timeA[j][1] = String(currentTime.hour() + ":0" + currentTime.minute());
 
             } else {
                 timeA[j][1] = String(currentTime.hour() + ":" + currentTime.minute());
             }
-            currentTime.subtract(15, "m");
+            currentTime.subtract(drinksTime, "m");
             if (currentTime.minute() < 10) {
                 timeA[j][0] = String(currentTime.hour() + ":0" + currentTime.minute());
 
@@ -112,11 +192,17 @@ module.exports = {
                 timeA[j][3] = walkTime
             }
             if (j !== 0) {
-                walkTime = times[colleges[j].order - 1][colleges[j - 1].order - 1];
+                //              console.log('current college :' + colleges[j].name + ' pos: ' + colleges[j].order);
+
+                walkTime = times[colleges[j].order - 1][colleges[j - 1].order - 1]
+                //          walkTime = times[colleges[colleges.length-j].order - 1][colleges[colleges.length-j - 1].order - 1];
             }
 
             currentTime.subtract(walkTime, "m");
+            //         console.log(currentTime.hours() + ':'+currentTime.minute());
+
         }
+        //   console.log(timeA);
         return timeA
     },
     walkTime: function (colleges, times) {
@@ -126,102 +212,34 @@ module.exports = {
         }
         return totalWalk
     },
-    getTimeArraySS: function (colleges, times, start) {
-        let startTime = this.convertTime(start);
-        let totalWalk = this.walkTime(colleges, times);
-        startTime.add(totalWalk, "m");
-        let currentTime = this.convertTime(colleges[colleges.length - 1].close);
-        var timeA = new Array(colleges.length);
-        for (let i = 0; i < timeA.length; i++) {
-            timeA[i] = new Array(3);
+    /**
+     * @return {boolean}
+     */
+    StrTGeqIntT: function (timeStr, timeInt) {
+        if (timeStr === '0:00') {
+            timeStr = '24:00'
         }
-        for (let j = colleges.length - 1; j >= 0; j--) {
-            if (currentTime.minute() < 10) {
-                timeA[j][1] = String(currentTime.hour() + ":0" + currentTime.minute());
-
-            } else {
-                timeA[j][1] = String(currentTime.hour() + ":" + currentTime.minute());
-            }
-            currentTime.subtract(15, "m");
-            if (currentTime.minute() < 10) {
-                timeA[j][0] = String(currentTime.hour() + ":0" + currentTime.minute());
-
-            } else {
-                timeA[j][0] = String(currentTime.hour() + ":" + currentTime.minute());
-            }
-            if (j === colleges.length - 1) {
-                timeA[j][3] = 0
-            } else {
-                timeA[j][3] = walkTime
-            }
-            if (j !== 0) {
-                walkTime = times[colleges[j].order - 1][colleges[j - 1].order - 1];
-            }
-
-            currentTime.subtract(walkTime, "m");
-        }
-        return timeA
+        let strTotal = parseInt(timeStr.substring(0, 2)) + (parseFloat(timeStr.substring(3, 5) / 60));
+        return strTotal >= timeInt;
     },
-    getTimeArray2: function (colleges, times, startC) {
-        var currentTime = new moment();
-        currentTime.format('HH:mm');
-        currentTime.hour(parseInt(colleges[colleges.length - 1].close));
-        currentTime.minute(0);
-        var timeA = new Array(colleges.length);
-        for (var i = 0; i < timeA.length; i++) {
-            timeA[i] = new Array(3);
+    /**
+     * @return {boolean}
+     */
+    StrTGIntT: function (timeStr, timeInt) {
+        if (timeStr === '0:00') {
+            timeStr = '24:00'
         }
-        var walkTime;
-        for (var j = startC - 1; j >= 0; j--) {
-            if (currentTime.minute() < 10) {
-                timeA[j][1] = String(currentTime.hour() + ":0" + currentTime.minute());
-
-            } else {
-                timeA[j][1] = String(currentTime.hour() + ":" + currentTime.minute());
-            }
-            currentTime.subtract(15, "m");
-            if (currentTime.minute() < 10) {
-                timeA[j][0] = String(currentTime.hour() + ":0" + currentTime.minute());
-
-            } else {
-                timeA[j][0] = String(currentTime.hour() + ":" + currentTime.minute());
-            }
-            if (j === startC - 1) {
-                timeA[j][3] = 0
-            } else {
-                timeA[j][3] = walkTime
-            }
-            if (j !== 0) {
-                walkTime = times[colleges[j].order - 1][colleges[j - 1].order - 1];
-            }
-
-            currentTime.subtract(walkTime, "m");
-        }
-        for (var j = colleges.length - 1; j >= startC; j--) {
-            if (currentTime.minute() < 10) {
-                timeA[j][1] = String(currentTime.hour() + ":0" + currentTime.minute());
-
-            } else {
-                timeA[j][1] = String(currentTime.hour() + ":" + currentTime.minute());
-            }
-            currentTime.subtract(15, "m");
-            if (currentTime.minute() < 10) {
-                timeA[j][0] = String(currentTime.hour() + ":0" + currentTime.minute());
-
-            } else {
-                timeA[j][0] = String(currentTime.hour() + ":" + currentTime.minute());
-            }
-            if (j === colleges.length - 1) {
-                timeA[j][3] = 0
-            } else {
-                timeA[j][3] = walkTime
-            }
-            if (j !== 0) {
-                walkTime = times[colleges[j].order - 1][colleges[j - 1].order - 1];
-            }
-
-            currentTime.subtract(walkTime, "m");
-        }
-        return timeA
+        let strTotal = parseInt(timeStr.substring(0, 2)) + (parseFloat(timeStr.substring(3, 5) / 60));
+        return strTotal > timeInt;
     },
+    checkValidity: function (colleges, timeA) {
+        for (let x = 0; x < timeA.length; x++) {
+            if (!this.StrTGeqIntT(timeA[x][0], colleges[x].open)) {
+                return false
+            } else if (this.StrTGIntT(timeA[x][1], colleges[x].close)) {
+                return false
+            }
+        }
+        return true
+    }
 };
