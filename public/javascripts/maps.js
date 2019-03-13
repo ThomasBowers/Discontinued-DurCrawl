@@ -173,7 +173,7 @@ function displayRoute(start, end, map, points) {
         destination: end,
         travelMode: google.maps.TravelMode.WALKING,
         waypoints: points,
-        optimizeWaypoints: true
+        optimizeWaypoints: false
     };
     var directionsService = new google.maps.DirectionsService();
     directionsService.route(request, function (response, status) {

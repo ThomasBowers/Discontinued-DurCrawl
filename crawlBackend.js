@@ -86,7 +86,7 @@ module.exports = {
         return time
     },
     orderandtimes: function (colleges, times) {
-        let drinksTime = 30;
+        let drinksTime = 40;
         let timeArray = this.getTimeArray(colleges, times, drinksTime);
         console.log();
         console.log(timeArray);
@@ -94,24 +94,24 @@ module.exports = {
             while (!this.checkValidity(colleges, timeArray) && drinksTime > 10) {
                 drinksTime -= 2;
                 timeArray = this.getTimeArray(colleges, times, drinksTime);
-                console.log('readycheck: ' + drinksTime)
+         //       console.log('readycheck: ' + drinksTime)
             }
             if (this.checkValidity(colleges, timeArray)) {
-                console.log('valid');
+          //      console.log('valid');
                 //console.log('list of colleges');
                 //console.log(colleges);
                 //console.log(timeArray);
                 let returner = [timeArray, colleges, drinksTime];
                 return (returner)            }
             console.log('shuffling');
+            drinksTime = 40;
             colleges = this.shuffle(colleges);
             timeArray = this.getTimeArray(colleges, times, drinksTime);
-            drinksTime = 30;
         }
-        console.log('valid instant');
+        //console.log('valid instant');
         //console.log('list of colleges');
        // console.log(colleges);
-      //  console.log(timeArray);
+        console.log(timeArray);
         let returner = [timeArray, colleges, drinksTime];
         return (returner)
 
@@ -123,28 +123,24 @@ module.exports = {
             fin = '24:00'
         }
         let total = (60 * parseInt(fin.substring(0, 2)) - 60 * parseInt(start.substring(0, 2)) + parseInt(fin.substring(3, 5)) - parseInt(start.substring(3, 5)));
-        console.log('total time :' + total);
+    //    console.log('total time :' + total);
         return total;
     },
-    getBestValid: function (colleges, times) {
-        let collegelistA = colleges;
-        let collegelistB = this.shuffle([...colleges]);
-        let collegelistC = this.shuffle([...colleges]);
-        let coltimA = this.orderandtimes(collegelistA, times);
-        let coltimB = this.orderandtimes(collegelistB, times);
-        let coltimC = this.orderandtimes(collegelistC, times);
-        let totals = [this.totalTime(coltimA[0])- colleges.length*coltimA[2], this.totalTime(coltimB[0]) - colleges.length*coltimB[2], this.totalTime(coltimC[0])-colleges.length*coltimC[2]];
-        console.log(totals);
-        if (totals[0] <= totals[1] && totals[0] <= totals[2]) {
-            console.log('returning A');
-            return coltimA
-        } else if (totals[1] <= totals[0] && totals[1] <= totals[2]) {
-            console.log('returning B');
-            return coltimB
-        } else {
-            console.log('returning A');
-            return coltimC
+
+    getBestValid: function (colleges, times, depth = 10) {
+        let collegelist = [];
+        let totals = [];
+        collegelist.push(this.orderandtimes([...colleges], times));
+        totals.push(this.totalTime(collegelist[0][0])-100*colleges.length*collegelist[0][2]);
+        for(let i = 1; i < depth; i++){
+            collegelist.push(this.orderandtimes(this.shuffle([...colleges]), times));
+            let d = 100* colleges.length*collegelist[i][2];
+            totals.push(this.totalTime(collegelist[i][0])-d);
         }
+        console.log(totals);
+        let min = totals.indexOf(Math.min(...totals));
+     //   console.log(min);
+        return collegelist[min];
     },
     shuffle: function (array) {
         let currentIndex = array.length, temporaryValue, randomIndex;
